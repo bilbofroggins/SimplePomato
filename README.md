@@ -4,7 +4,7 @@
 
 An always-free pomodoro timer app to boost your productivity and manage your time efficiently. It follows the Pomodoro Technique, helping you stay focused by breaking your work into intervals called "pomodoros" with short breaks in between.
 
-Availale on the app store.
+Availale on the app store, or you can download the latest binary from the releases section.
 
 ## Contributing
 Contributions are welcome! If you'd like to contribute to the project, follow these steps:
