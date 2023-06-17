@@ -34,5 +34,11 @@ struct SettingsData {
 }
 
 class SettingsManager: ObservableObject {
-    @Published var settingsData = SettingsData()
+    static let instance = SettingsManager()
+
+    @Published var settingsData: SettingsData
+
+    private init() {
+        settingsData = SettingsData()
+    }
 }

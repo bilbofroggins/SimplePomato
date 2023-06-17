@@ -16,8 +16,8 @@
 		307181702A2D740E00E10B2C /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307181652A2D740E00E10B2C /* MainView.swift */; };
 		307181712A2D740E00E10B2C /* TimeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307181662A2D740E00E10B2C /* TimeHelper.swift */; };
 		307181722A2D740E00E10B2C /* TimerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 307181672A2D740E00E10B2C /* TimerApp.swift */; };
-		307181732A2D740E00E10B2C /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 307181682A2D740E00E10B2C /* Info.plist */; };
 		307181802A2E98DE00E10B2C /* beep.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3071817F2A2E98DE00E10B2C /* beep.mp3 */; };
+		30AB56DB2A3D56DB0038E81A /* test.png in Resources */ = {isa = PBXBuildFile; fileRef = 30AB56DA2A3D56DB0038E81A /* test.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +34,7 @@
 		307181682A2D740E00E10B2C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3071817F2A2E98DE00E10B2C /* beep.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beep.mp3; sourceTree = "<group>"; };
 		3096B6582A2C274D00E3EC2A /* SimplePomato.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimplePomato.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		30AB56DA2A3D56DB0038E81A /* test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = test.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +63,7 @@
 				307181672A2D740E00E10B2C /* TimerApp.swift */,
 				307181682A2D740E00E10B2C /* Info.plist */,
 				3071817F2A2E98DE00E10B2C /* beep.mp3 */,
+				30AB56DA2A3D56DB0038E81A /* test.png */,
 			);
 			path = Timer;
 			sourceTree = "<group>";
@@ -148,7 +150,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				307181732A2D740E00E10B2C /* Info.plist in Resources */,
+				30AB56DB2A3D56DB0038E81A /* test.png in Resources */,
 				307181802A2E98DE00E10B2C /* beep.mp3 in Resources */,
 				3071816D2A2D740E00E10B2C /* Assets.xcassets in Resources */,
 				3071816E2A2D740E00E10B2C /* Preview Assets.xcassets in Resources */,
@@ -296,8 +298,9 @@
 				CODE_SIGN_ENTITLEMENTS = Timer/Timer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Timer/Info.plist;
@@ -309,7 +312,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = co.cunniff.Timer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -325,8 +328,9 @@
 				CODE_SIGN_ENTITLEMENTS = Timer/Timer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_ASSET_PATHS = "";
+				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Timer/Info.plist;
@@ -338,7 +342,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.3;
+				MARKETING_VERSION = 1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = co.cunniff.Timer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

@@ -24,6 +24,8 @@ struct CustomButton: View {
 }
 
 struct MainView: View {
+    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     @Binding var timeRemaining: Int
     @State private var selectedIndex = 2
     @State private var isPaused = true
@@ -32,8 +34,7 @@ struct MainView: View {
     @State private var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     @State private var soundPlayer = SoundPlayer()
     
-    @Environment(\.openWindow) var openWindow
-    @EnvironmentObject var settingsManager: SettingsManager
+    @StateObject var settingsManager: SettingsManager = SettingsManager.instance
 
     var body: some View {
         VStack {
@@ -51,7 +52,7 @@ struct MainView: View {
                         CustomButton(text: String(settingsManager.settingsData.timer_presets[0]) + "m")
                             .onTapGesture {
                                 currentTimerPreset = 0
-                                maxTime = settingsManager.settingsData.timer_presets[currentTimerPreset] * 60
+                                maxTime = max(settingsManager.settingsData.timer_presets[currentTimerPreset] * 60, 1)
                                 timeRemaining = maxTime
                                 timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
                                 isPaused = false
@@ -60,7 +61,7 @@ struct MainView: View {
                         CustomButton(text: String(settingsManager.settingsData.timer_presets[1]) + "m")
                             .onTapGesture {
                                 currentTimerPreset = 1
-                                maxTime = settingsManager.settingsData.timer_presets[currentTimerPreset] * 60
+                                maxTime = max(settingsManager.settingsData.timer_presets[currentTimerPreset] * 60, 1)
                                 timeRemaining = maxTime
                                 timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
                                 isPaused = false
@@ -69,7 +70,7 @@ struct MainView: View {
                         CustomButton(text: String(settingsManager.settingsData.timer_presets[2]) + "m")
                             .onTapGesture {
                                 currentTimerPreset = 2
-                                maxTime = settingsManager.settingsData.timer_presets[currentTimerPreset] * 60
+                                maxTime = max(settingsManager.settingsData.timer_presets[currentTimerPreset] * 60, 1)
                                 timeRemaining = maxTime
                                 timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
                                 isPaused = false
@@ -90,13 +91,13 @@ struct MainView: View {
                 
                 Menu {
                     Button("Settings") {
-                        openWindow(id: "settings")
+                        appDelegate.openCocoaWindow(id: "settings")
                     }
                     
                     Divider()
                     
                     Button("About SimplePomato") {
-                        openWindow(id: "about")
+                        appDelegate.openCocoaWindow(id: "about")
                     }
                     
                     Button("Quit") {
@@ -115,7 +116,7 @@ struct MainView: View {
                         if timeRemaining == 0 {
                             CustomButton(text: "stop")
                             .onTapGesture {
-                                maxTime = settingsManager.settingsData.timer_presets[currentTimerPreset] * 60
+                                maxTime = max(settingsManager.settingsData.timer_presets[currentTimerPreset] * 60, 1)
                                 timeRemaining = maxTime
                                 soundPlayer.stopSound()
                             }
@@ -159,8 +160,8 @@ struct MainView: View {
 
 
 struct MainView_Previews: PreviewProvider {
-    @StateObject private var settingsManager = SettingsManager()
     static var previews: some View {
-        MainView(timeRemaining: .constant(245)).environmentObject(SettingsManager())
+        MainView(timeRemaining: .constant(245))
+            .environmentObject(SettingsManager.instance)
     }
 }

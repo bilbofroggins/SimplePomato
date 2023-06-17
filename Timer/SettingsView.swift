@@ -18,7 +18,7 @@ func setLaunchAtLogin(enabled: Bool) {
 }
 
 struct SettingsView: View {
-    @EnvironmentObject var settingsManager: SettingsManager
+    @StateObject var settingsManager: SettingsManager = SettingsManager.instance
     
     @State private var soundPlayer = SoundPlayer()
     
@@ -30,19 +30,19 @@ struct SettingsView: View {
                     Spacer()
                     TextField("", text: Binding(
                         get: { String(settingsManager.settingsData.timer_presets[0]) },
-                        set: { settingsManager.settingsData.timer_presets[0] = ((Int($0) == 0 ? 1 : Int($0)) ?? 1)}
+                        set: { settingsManager.settingsData.timer_presets[0] = (Int($0) ?? 0)}
                     ))
                         .frame(width: 40)
                         .multilineTextAlignment(.center)
                     TextField("", text: Binding(
                         get: { String(settingsManager.settingsData.timer_presets[1]) },
-                        set: { settingsManager.settingsData.timer_presets[1] = ((Int($0) == 0 ? 1 : Int($0)) ?? 1) }
+                        set: { settingsManager.settingsData.timer_presets[1] = (Int($0) ?? 0)}
                     ))
                         .frame(width: 40)
                         .multilineTextAlignment(.center)
                     TextField("", text: Binding(
                         get: { String(settingsManager.settingsData.timer_presets[2]) },
-                        set: { settingsManager.settingsData.timer_presets[2] = ((Int($0) == 0 ? 1 : Int($0)) ?? 1) }
+                        set: { settingsManager.settingsData.timer_presets[2] = (Int($0) ?? 0)}
                     ))
                         .frame(width: 40)
                         .multilineTextAlignment(.center)
@@ -84,12 +84,13 @@ struct SettingsView: View {
                     }
             }
         }
+        
     }
 }
 
 struct SettingsView_Previews: PreviewProvider {
-    @StateObject private var settingsManager = SettingsManager()
     static var previews: some View {
-        SettingsView().environmentObject(SettingsManager())
+        SettingsView()
+            .environmentObject(SettingsManager.instance)
     }
 }
