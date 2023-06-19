@@ -1,5 +1,7 @@
 # SimplePomato
 
+Mac-only app for now
+
 <p align="center">
   <img style="display:block;margin: auto;" src="https://github.com/bilbofroggins/SimplePomato/assets/82745308/a0f189b8-0047-480d-ad52-020c7fdb8150" width="450"/>
 </p>
